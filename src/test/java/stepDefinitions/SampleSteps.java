@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -100,4 +101,30 @@ public class SampleSteps {
     public void iAmOnActionPage() {
         driver.get("https://kristinek.github.io/site/examples/actions");
     }
+
+    @When("^I am on number page$")
+    public void iAmOnNumberPage() throws Throwable{
+        driver.get("https://kristinek.github.io/site/tasks/enter_a_number"); }
+
+    @And("^I should see number page header$")
+    public void iShouldSeeNumberPageHeader() throws Throwable {
+        assertEquals("Enter a number",
+                driver.findElement(By.cssSelector("h2")).getText());
+    }
+
+    @And("^I enter (\\d+) in the field$")
+    public void iEnterDinTheField() {
+
+    }
+
+    @And("^I click submit button$")
+    public void iClickSubmitButton() {
+
+    }
+
+    @Then("^Error message is: \"([^\"]*0\"$)")
+    public void  errorMessageIs(String arg0) throws Throwable {
+        throw new PendingException();
+    }
+
 }
